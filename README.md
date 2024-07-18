@@ -1,73 +1,143 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Technical test for Geeks Castle
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project is an implementation of a hexagonal architecture using NestJS and Firebase Firestore. The goal is to maintain a clear separation between the different layers of the application and to facilitate the maintenance and scalability of the code.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Table of Contents
 
-## Description
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Run the Project](#run-the-project)
+- [Firebase Emulators](#firebase-emulators)
+- [Endpoints Available](#endpoints-available)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Requirements
+
+- Node.js (version 18 or higher)
+- Firebase CLIc
 
 ## Installation
 
-```bash
-$ npm install
+1. Clone the repository:
+
+   ```sh
+   git clone https://github.com/juancalderonx/geeks-castle-tech-test
+   cd your-repository
+   ```
+
+2. Install the dependencies:
+   ```sh
+   npm install
+   ```
+
+## Configuration
+
+1. Copy the `env.template` file and rename it to `.env`:
+
+   ```sh
+   cp env.template .env
+   ```
+
+2. Edit the `.env` file to include the required environment variables. Be sure to add Firebase credentials and any other required settings.
+
+## Running the Project
+
+To run the project in development mode:
+
+```sh
+npm run start:dev
 ```
 
-## Running the app
+To run the project in production mode:
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```sh
+npm run start:prod
 ```
 
-## Test
+## Firebase emulators
 
-```bash
-# unit tests
-$ npm run test
+To use Firebase emulators locally:
 
-# e2e tests
-$ npm run test:e2e
+1. Install Firebase CLI:
 
-# test coverage
-$ npm run test:cov
-```
+   ```sh
+   npm install -g firebase-tools
+   ```
 
-## Support
+2. Start the Firebase emulators:
+   ```sh
+   firebase emulators:start
+   ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Available Endpoints
 
-## Stay in touch
+### Users
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- **Create User**
 
-## License
+  - **URL**: `/users`
+  - **Method**: `POST`
+  - **Description**: Create a new user.
+  - **Body**:
+    ```json
+    {
+      "name": "Juan",
+      "username": "juancalderonx",
+      "password": "Secret123." // Optional, it is automatically generated if not provided.
+    }
+    ```
 
-Nest is [MIT licensed](LICENSE).
+- **Find user by id**
+  - **URL**: `/users/:id`
+  - **Method**: `GET`
+  - **Description**: Gets a user by its ID.s
+  - **URL Parameters**:
+    - `id`: The ID of the user.
+
+### Customers
+
+- **Create Customer**
+
+  - **URL**: `/customers`
+  - **Method**: `POST`
+  - **Description**: Create a new customer.
+  - **Body**:
+    ```json
+    {
+      "name": "Juan",
+      "lastName": "Esteban",
+      "birthday": "2002-11-23T11:00:00.000Z" // Format ISO 8601
+    }
+    ```
+
+- **Find customer by ID**
+  - **URL**: `/customers/:id`
+  - **Method**: `GET`
+  - **Description**: Gets a customer by its ID.
+  - **URL Parameters**:
+    - `id`: The ID of the customer.
+
+## Project Explanation
+
+This project implements a hexagonal architecture with NestJS and Firebase Firestore. Hexagonal architecture, also known as port and adapter architecture, aims to maintain a clear separation between the application domain and external technology concerns, such as databases and frameworks.
+
+### Project Structure
+
+- **App**: It contains the AppModule of the application, which is in charge of configuring the modules and drivers of the application.
+
+- **Contexts**: It contains the different contexts of the application (for example Users or Customers), which represent the different areas of the application. Each context contains the following folders:
+
+- **Domain**: Contains the entities, repositories and exceptions of the domain.
+- **Application**: Contains the use cases and services of the application.
+- **Infrastructure**: It contains the implementation of Firebase repositories, drivers and configuration.
+
+### Main Featuress
+
+- Implementation of a hexagonal architecture.
+- Use of Firebase Firestore for data storage.
+- Use of Firebase Functions for calculations and automatic updates in the database.
+- Custom Logger configuration for the application.
+- Custom configuration of environment variables for the application.
+- Implementation of design patterns, clean code and good programming practices.s
+
+I hope this README has been helpful for you to configure and understand the project. If you have any questions or problems, feel free to open an issue in the repository.
