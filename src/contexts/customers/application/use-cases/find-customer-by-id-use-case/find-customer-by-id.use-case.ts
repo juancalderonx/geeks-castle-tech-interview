@@ -1,9 +1,9 @@
-import { Injectable } from '@/shared/dependency-injection/injectable';
+import { Injectable } from '../../../../shared/dependency-injection/injectable';
 import {
   CustomerNotFoundException,
   CustomerPrimitive,
   CustomerRepository,
-} from '@/customers/domain';
+} from '../../../domain';
 import { FindCustomerByIdDto } from './find-customer-by-id.dto';
 
 @Injectable()

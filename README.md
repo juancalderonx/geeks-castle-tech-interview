@@ -54,7 +54,21 @@ To run the project in production mode:
 npm run start:prod
 ```
 
+## To run the tests
+
+```sh
+npm run test
+```
+
+## To run test and generate coverage report
+
+```sh
+npm run test:cov
+```
+
 ## Firebase emulators
+
+> **Note**: Note that you must log in to Firebase CLI to be able to use the emulators and configure the project in the environment variables
 
 To use Firebase emulators locally:
 
@@ -138,6 +152,7 @@ This project implements a hexagonal architecture with NestJS and Firebase Firest
 - Use of Firebase Functions for calculations and automatic updates in the database.
 - Custom Logger configuration for the application.
 - Custom configuration of environment variables for the application.
-- Implementation of design patterns, clean code and good programming practices.s
+- Implementation of design patterns, clean code and good programming practices.
+- The project includes testing of the application's use cases and services.
 
 I hope this README has been helpful for you to configure and understand the project. If you have any questions or problems, feel free to open an issue in the repository.

@@ -1,5 +1,5 @@
-import { User, UserPrimitive, UserRepository } from '@/contexts/users/domain';
-import { Injectable } from '@/shared/dependency-injection/injectable';
+import { User, UserPrimitive, UserRepository } from '../../domain';
+import { Injectable } from '../../../shared/dependency-injection/injectable';
 
 @Injectable()
 export class InMemoryUserRepository implements UserRepository {

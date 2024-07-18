@@ -1,7 +1,7 @@
-import { User, UserPrimitive, UserRepository } from '@/contexts/users/domain';
-import { CreateUserDto } from './create-user.dto';
-import { Injectable } from '@/src/contexts/shared/dependency-injection/injectable';
+import { User, UserPrimitive, UserRepository } from '../../../domain';
+import { Injectable } from '../../../../shared/dependency-injection/injectable';
 import { PasswordService } from '../../user-password/user-password.service';
+import { CreateUserDto } from './create-user.dto';
 
 @Injectable()
 export class CreateUserUseCase {

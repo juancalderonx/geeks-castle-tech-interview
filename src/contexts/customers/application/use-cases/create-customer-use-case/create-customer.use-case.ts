@@ -1,9 +1,9 @@
-import { Injectable } from '@/src/contexts/shared/dependency-injection/injectable';
+import { Injectable } from '../../../../shared/dependency-injection/injectable';
 import {
   CustomerRepository,
   CustomerPrimitive,
   Customer,
-} from '@/customers/domain';
+} from '../../../domain';
 import { CreateCustomerDto } from './create-customer.dto';
 
 @Injectable()

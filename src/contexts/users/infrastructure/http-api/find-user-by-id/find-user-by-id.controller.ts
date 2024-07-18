@@ -5,8 +5,8 @@ import {
   Param,
   ParseUUIDPipe,
 } from '@nestjs/common';
-import { FindUserByIdUseCase } from '@/contexts/users/application';
-import { UserNotFoundException, UserPrimitive } from '@/contexts/users/domain';
+import { FindUserByIdUseCase } from '../../../application/use-cases/find-user-by-id-use-case';
+import { UserNotFoundException, UserPrimitive } from '../../../domain';
 
 @Controller('users')
 export class FindUserByIdController {

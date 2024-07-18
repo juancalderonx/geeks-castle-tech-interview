@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { FirebaseModule } from '@/shared/firebase/firebase.module';
+import { FirebaseModule } from '../../shared/firebase/firebase.module';
 import { CreateCustomerUseCase, FindCustomerByIdUseCase } from '../application';
 import { FirestoreCustomerRepository } from './repositories/firestore.repository';
 import { CustomerRepository } from '../domain';

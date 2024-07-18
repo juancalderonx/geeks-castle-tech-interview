@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateCustomerUseCase } from '@/customers/application';
+import { CreateCustomerUseCase } from '../../../application/use-cases/create-customer-use-case';
 import { CustomerPrimitive } from '../../../domain';
 import { CreateCustomerHttpDto } from './create-customer.http-dto';
 
