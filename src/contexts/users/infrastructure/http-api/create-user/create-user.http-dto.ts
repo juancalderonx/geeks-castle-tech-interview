@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsString, Length, Matches } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+  Length,
+  Matches,
+} from 'class-validator';
 
 export class CreateUserHttpDto {
   @IsString()
@@ -9,6 +15,7 @@ export class CreateUserHttpDto {
   @IsNotEmpty()
   username!: string;
 
+  @IsOptional()
   @IsString()
   @IsNotEmpty()
   @Length(8, 25)
@@ -16,5 +23,5 @@ export class CreateUserHttpDto {
     message:
       'The password must be 8 to 25 characters long and contain at least one uppercase letter, one lowercase letter and one special character or number. No line breaks or blank spaces are allowed.',
   })
-  password!: string;
+  password?: string;
 }

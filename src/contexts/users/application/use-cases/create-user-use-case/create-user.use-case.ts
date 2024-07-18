@@ -1,6 +1,7 @@
 import { User, UserPrimitive, UserRepository } from '@/contexts/users/domain';
 import { CreateUserDto } from './create-user.dto';
 import { Injectable } from '@/src/contexts/shared/dependency-injection/injectable';
+import { PasswordService } from '../../user-password/user-password.service';
 
 @Injectable()
 export class CreateUserUseCase {
@@ -9,7 +10,18 @@ export class CreateUserUseCase {
   async execute(
     createUserDto: CreateUserDto,
   ): Promise<{ user: UserPrimitive }> {
-    const user = User.create(createUserDto);
+    let password: string;
+
+    if (createUserDto.password) {
+      password = await PasswordService.validateAndHashPassword(
+        createUserDto.password,
+      );
+    } else {
+      const generatedPassword = PasswordService.generateSecurePassword();
+      password = await PasswordService.hashPassword(generatedPassword);
+    }
+
+    const user = User.create({ ...createUserDto, password });
 
     await this.userRepository.save(user);
 
