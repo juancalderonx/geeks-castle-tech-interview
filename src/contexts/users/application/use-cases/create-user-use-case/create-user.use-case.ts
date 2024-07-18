@@ -10,15 +10,12 @@ export class CreateUserUseCase {
   async execute(
     createUserDto: CreateUserDto,
   ): Promise<{ user: UserPrimitive }> {
-    let password: string;
+    let password: string = '';
 
     if (createUserDto.password) {
       password = await PasswordService.validateAndHashPassword(
         createUserDto.password,
       );
-    } else {
-      const generatedPassword = PasswordService.generateSecurePassword();
-      password = await PasswordService.hashPassword(generatedPassword);
     }
 
     const user = User.create({ ...createUserDto, password });

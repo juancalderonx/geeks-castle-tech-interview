@@ -15,23 +15,6 @@ export class PasswordService {
   }
 
   /**
-   * Generates a secure password in case the user does not provide one
-   * @returns Secure password
-   */
-  static generateSecurePassword(): string {
-    const charset =
-      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+';
-
-    let password = '';
-
-    for (let i = 0, n = charset.length; i < 12; ++i) {
-      password += charset.charAt(Math.floor(Math.random() * n));
-    }
-
-    return password;
-  }
-
-  /**
    * Validates and hashes a password
    * @param password Password to validate and hash
    * @returns Hashed password
