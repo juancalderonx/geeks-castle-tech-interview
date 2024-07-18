@@ -16,6 +16,14 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@/src/*": ["src/*"],
+      "@/http-api/*": ["src/app/http-api/*"],
+      "@/contexts/*": ["src/contexts/*"],
+      "@/users/*": ["src/contexts/users/*"],
+      "@/shared/*": ["src/contexts/shared/*"],
+      "@/tests/*": ["tests/*"]
+    }
   }
 }
