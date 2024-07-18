@@ -3,7 +3,7 @@ import { CreateUserController } from './http-api/create-user/create-user.control
 import { CreateUserUseCase, FindUserByIdUseCase } from '../application';
 import { UserRepository } from '@/contexts/users/domain';
 import { FindUserByIdController } from './http-api/find-user-by-id/find-user-by-id.controller';
-import { FirestoreRepository } from './repositories/firestore.repository';
+import { FirestoreUserRepository } from './repositories/firestore.repository';
 import { FirebaseModule } from '@/shared/firebase/firebase.module';
 
 @Module({
@@ -12,10 +12,10 @@ import { FirebaseModule } from '@/shared/firebase/firebase.module';
   providers: [
     CreateUserUseCase,
     FindUserByIdUseCase,
-    FirestoreRepository,
+    FirestoreUserRepository,
     {
       provide: UserRepository,
-      useExisting: FirestoreRepository,
+      useExisting: FirestoreUserRepository,
     },
   ],
   exports: [CreateUserUseCase, FindUserByIdUseCase],

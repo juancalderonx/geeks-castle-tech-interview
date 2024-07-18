@@ -25,9 +25,58 @@ exports.generatePasswordOnCreate = functions.firestore
       const hashedPassword = await bcrypt.hash(password, saltRounds);
 
       await admin.firestore().collection('users').doc(userId).update({
-        password: hashedPassword, // test
+        password: hashedPassword,
       });
 
       logger.info(`Password generated and updated for user ${userId}`);
     }
+
+    return null;
+  });
+
+exports.calculateCustomerAgeOnCreate = functions.firestore
+  .document('customers/{customerId}')
+  .onCreate(async (snap, context) => {
+    const customerId = context.params.customerId;
+    const customerData = snap.data();
+    const customerBirthdate =
+      customerData.birthdate as admin.firestore.Timestamp;
+    const customerBirthdateMapped = customerBirthdate.toDate();
+
+    logger.info(`The customer's id is: ${customerId}`);
+    logger.info(`The customer birthdate is: ${customerBirthdateMapped}`);
+
+    const today = new Date();
+
+    if (customerBirthdateMapped > today) {
+      logger.error('The date cannot be in the future');
+
+      return {
+        status: 400,
+        error: 'The date cannot be in the future',
+      };
+    }
+
+    // Age calculation
+    let age = today.getFullYear() - customerBirthdateMapped.getFullYear();
+    const monthDiff = today.getMonth() - customerBirthdateMapped.getMonth();
+    const dayDiff = today.getDate() - customerBirthdateMapped.getDate();
+
+    // Adjustment if the birthday has not yet passed in the current year
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--;
+    }
+
+    await admin.firestore().collection('customers').doc(customerId).update({
+      age: age,
+    });
+
+    logger.info(
+      `Age calculated successfully for customer with id: ${customerId}`,
+    );
+
+    return {
+      status: 200,
+      message: 'Age was successfully calculated and assigned.',
+    };
   });

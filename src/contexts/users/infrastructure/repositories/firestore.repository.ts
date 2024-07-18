@@ -7,8 +7,10 @@ import {
 import { FirebaseConfigService } from '@/src/contexts/shared/firebase/firebase-config.service';
 import { Inject } from '@nestjs/common';
 import * as admin from 'firebase-admin';
+import { Injectable } from '@/shared/dependency-injection/injectable';
 
-export class FirestoreRepository implements UserRepository {
+@Injectable()
+export class FirestoreUserRepository implements UserRepository {
   private collection: admin.firestore.CollectionReference;
 
   constructor(

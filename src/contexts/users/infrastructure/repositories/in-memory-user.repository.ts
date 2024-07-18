@@ -1,5 +1,7 @@
 import { User, UserPrimitive, UserRepository } from '@/contexts/users/domain';
+import { Injectable } from '@/shared/dependency-injection/injectable';
 
+@Injectable()
 export class InMemoryUserRepository implements UserRepository {
   private users: UserPrimitive[] = [];
 

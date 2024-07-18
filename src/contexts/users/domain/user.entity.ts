@@ -4,6 +4,7 @@ export interface UserPrimitive {
   id: string;
   name: string;
   username: string;
+  password: string;
 }
 
 export class User {
@@ -22,6 +23,7 @@ export class User {
       id: this.attributes.id,
       name: this.attributes.name,
       username: this.attributes.username,
+      password: this.attributes.password,
     };
   }
 }

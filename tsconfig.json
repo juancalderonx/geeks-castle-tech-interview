@@ -22,6 +22,7 @@
       "@/http-api/*": ["src/app/http-api/*"],
       "@/contexts/*": ["src/contexts/*"],
       "@/users/*": ["src/contexts/users/*"],
+      "@/customers/*": ["src/contexts/customers/*"],
       "@/shared/*": ["src/contexts/shared/*"],
       "@/tests/*": ["tests/*"]
     }
