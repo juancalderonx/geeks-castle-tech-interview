@@ -34,11 +34,25 @@ export class FirestoreCustomerRepository implements CustomerRepository {
 
     const customerPrimitive = doc.data() as CustomerPrimitive;
 
-    customerPrimitive.birthdate = this.mapCustomerBirthday(
+    customerPrimitive.birthdate = this.mapCustomerBirthdate(
       customerPrimitive.birthdate,
     );
 
     return new Customer(customerPrimitive);
+  }
+
+  async update(id: string, updateData: Partial<Customer>): Promise<void> {
+    const docRef = this.collection.doc(id);
+    const doc = await docRef.get();
+
+    if (!doc.exists) throw new CustomerNotFoundException(id);
+
+    // Filtrar valores undefined
+    const filteredUpdateData = Object.fromEntries(
+      Object.entries(updateData).filter(([, v]) => v !== undefined),
+    );
+
+    await docRef.update(filteredUpdateData);
   }
 
   /**
@@ -46,7 +60,7 @@ export class FirestoreCustomerRepository implements CustomerRepository {
    * @param birthdate Birthdate to map
    * @returns Birthdate as a Date object
    */
-  private mapCustomerBirthday(
+  private mapCustomerBirthdate(
     birthdate: admin.firestore.Timestamp | Date,
   ): Date {
     return birthdate instanceof admin.firestore.Timestamp

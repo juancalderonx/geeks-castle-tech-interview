@@ -1,96 +1,148 @@
 {
-  "info": {
-    "_postman_id": "0bf9fb62-105a-4ed0-a3c9-77414cd1afd1",
-    "name": "Geeks API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "23609627"
-  },
-  "item": [
-    {
-      "name": "Create user",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"name\": \"Juan\",\r\n    \"username\": \"juancalderonx\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "localhost:3000/users",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["users"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Find user by id",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "localhost:3000/users/:id",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["users", ":id"],
-          "variable": [
-            {
-              "key": "id",
-              "value": "d06188c4-02f2-4a3d-9051-8d861d4b1dc1"
-            }
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Create customer",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"name\": \"Juan\",\r\n    \"lastName\": \"Esteban\",\r\n    \"birthday\": \"2002-11-23T11:00:00.000Z\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "localhost:3000/customers",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["customers"]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "Find customer by id",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "localhost:3000/customers/:id",
-          "host": ["localhost"],
-          "port": "3000",
-          "path": ["customers", ":id"],
-          "variable": [
-            {
-              "key": "id",
-              "value": "b6a4317a-e874-4772-9e43-9bdf327319f5"
-            }
-          ]
-        }
-      },
-      "response": []
-    }
-  ]
+	"info": {
+		"_postman_id": "0bf9fb62-105a-4ed0-a3c9-77414cd1afd1",
+		"name": "Geeks API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23609627"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"username\": \"juancalderonx\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find user by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2956047c-f7dc-4f65-bd6d-e1a2b245d77d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"lastName\": \"Esteban\",\r\n    \"birthdate\": \"2002-11-23T11:00:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find customer by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/customers/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2d904c29-1243-46de-9362-a8fad812e9f3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update customer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Juan Actualizado\",\r\n    \"lastName\": \"Esteban Actualizado\",\r\n    \"birthdate\": \"2000-11-23T11:00:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/customers/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customers",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2d904c29-1243-46de-9362-a8fad812e9f3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
 }

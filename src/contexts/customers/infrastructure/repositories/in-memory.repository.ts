@@ -14,4 +14,16 @@ export class InMemoryCustomerRepository implements CustomerRepository {
 
     return customer ? new Customer(customer) : null;
   }
+
+  update(id: string, updateData: Partial<Customer>): Promise<void> {
+    const customer = this.customers.find((customer) => customer.id === id);
+
+    const updatedCustomer = { ...customer, ...updateData };
+
+    this.customers = this.customers.map((customer) =>
+      customer.id === id ? updatedCustomer : customer,
+    );
+
+    return Promise.resolve();
+  }
 }

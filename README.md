@@ -128,16 +128,33 @@ To use Firebase emulators locally:
     {
       "name": "Juan",
       "lastName": "Esteban",
-      "birthday": "2002-11-23T11:00:00.000Z" // Format ISO 8601
+      "birthdate": "2002-11-23T11:00:00.000Z" // Format ISO 8601
     }
     ```
 
 - **Find customer by ID**
+
   - **URL**: `/customers/:id`
   - **Method**: `GET`
   - **Description**: Gets a customer by its ID.
   - **URL Parameters**:
     - `id`: The ID of the customer.
+
+- **Update customer**
+  - **URL**: `/customers/:id`
+  - **Method**: `PATCH`
+  - **Description**: Update a customer by its ID.
+  - **URL Parameters**:
+    - `id`: The ID of the customer.
+  - **Body**:
+    ```json
+    {
+      // Fields optionals
+      "name": "Juan Actualizado",
+      "lastName": "Esteban Actualizado",
+      "birthdate": "2000-11-23T11:00:00.000Z"
+    }
+    ```
 
 ## Project Explanation
 
