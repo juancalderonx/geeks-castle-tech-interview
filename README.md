@@ -54,6 +54,18 @@ To run the project in production mode:
 npm run start:prod
 ```
 
+## To run the tests
+
+```sh
+npm run test
+```
+
+## To run test and generate coverage report
+
+```sh
+npm run test:cov
+```
+
 ## Firebase emulators
 
 To use Firebase emulators locally:

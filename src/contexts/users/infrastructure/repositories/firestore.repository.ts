@@ -3,11 +3,11 @@ import {
   UserNotFoundException,
   UserPrimitive,
   UserRepository,
-} from '@/contexts/users/domain';
-import { FirebaseConfigService } from '@/src/contexts/shared/firebase/firebase-config.service';
+} from '../../domain';
+import { FirebaseConfigService } from '../../../shared/firebase/firebase-config.service';
 import { Inject } from '@nestjs/common';
 import * as admin from 'firebase-admin';
-import { Injectable } from '@/shared/dependency-injection/injectable';
+import { Injectable } from '../../../shared/dependency-injection/injectable';
 
 @Injectable()
 export class FirestoreUserRepository implements UserRepository {

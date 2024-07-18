@@ -2,9 +2,9 @@ import {
   UserNotFoundException,
   UserPrimitive,
   UserRepository,
-} from '@/contexts/users/domain';
+} from '../../../domain';
 import { FindUserByIdDto } from './find-user-by-id.dto';
-import { Injectable } from '@/src/contexts/shared/dependency-injection/injectable';
+import { Injectable } from '../../../../shared/dependency-injection/injectable';
 
 @Injectable()
 export class FindUserByIdUseCase {

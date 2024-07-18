@@ -1,4 +1,4 @@
-import { User } from '@/users/domain/user.entity';
+import { User } from '../domain';
 
 export abstract class UserRepository {
   abstract save(user: User): Promise<void>;

@@ -1,9 +1,5 @@
-import { Injectable } from '@/shared/dependency-injection/injectable';
-import {
-  Customer,
-  CustomerPrimitive,
-  CustomerRepository,
-} from '@/customers/domain';
+import { Injectable } from '../../../shared/dependency-injection/injectable';
+import { Customer, CustomerPrimitive, CustomerRepository } from '../../domain';
 
 @Injectable()
 export class InMemoryCustomerRepository implements CustomerRepository {

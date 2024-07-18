@@ -1,13 +1,13 @@
+import * as admin from 'firebase-admin';
+import { Inject } from '@nestjs/common';
+import { Injectable } from '../../../shared/dependency-injection/injectable';
 import {
   Customer,
   CustomerNotFoundException,
   CustomerPrimitive,
   CustomerRepository,
-} from '@/customers/domain';
-import { Injectable } from '@/src/contexts/shared/dependency-injection/injectable';
-import { FirebaseConfigService } from '@/src/contexts/shared/firebase/firebase-config.service';
-import { Inject } from '@nestjs/common';
-import * as admin from 'firebase-admin';
+} from '../../domain';
+import { FirebaseConfigService } from '../../../shared/firebase/firebase-config.service';
 
 @Injectable()
 export class FirestoreCustomerRepository implements CustomerRepository {
