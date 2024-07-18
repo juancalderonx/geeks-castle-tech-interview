@@ -66,7 +66,7 @@ npm run test
 npm run test:cov
 ```
 
-## Firebase emulators
+## Firebase Emulators
 
 > **Note**: Note that you must log in to Firebase CLI to be able to use the emulators and configure the project in the environment variables
 
@@ -78,12 +78,20 @@ To use Firebase emulators locally:
    npm install -g firebase-tools
    ```
 
-2. Start the Firebase emulators:
+2. Initialize Firebase Functions:
+
    ```sh
-   firebase emulators:start
+   npm run init:functions
+   ```
+
+3. Initialize Firebase Emulators:
+   ```sh
+   npm run init:emulators
    ```
 
 ## Available Endpoints
+
+> **Note**: If you want to use postman, you can import the `geeks-castle-tech-test.postman_collection.json` file that is in the root of the project so that in Postman you can test the endpoints.
 
 ### Users
 
