@@ -68,6 +68,8 @@ npm run test:cov
 
 ## Firebase emulators
 
+> **Note**: Note that you must log in to Firebase CLI to be able to use the emulators and configure the project in the environment variables
+
 To use Firebase emulators locally:
 
 1. Install Firebase CLI:
