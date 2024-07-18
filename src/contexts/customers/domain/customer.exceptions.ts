@@ -3,3 +3,9 @@ export class CustomerNotFoundException extends Error {
     super(`Customer with id ${id} not found`);
   }
 }
+
+export class InvalidBirthdateException extends Error {
+  constructor() {
+    super('Invalid birthdate');
+  }
+}

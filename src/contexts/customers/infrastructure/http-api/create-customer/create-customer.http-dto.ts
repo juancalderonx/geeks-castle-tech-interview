@@ -10,5 +10,5 @@ export class CreateCustomerHttpDto {
   lastName!: string;
 
   @IsDateString()
-  birthday!: Date;
+  birthdate!: Date;
 }

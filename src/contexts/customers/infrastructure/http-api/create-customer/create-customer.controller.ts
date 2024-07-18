@@ -13,7 +13,7 @@ export class CreateCustomerController {
   }> {
     return await this.createCustomerUseCase.execute({
       name: createCustomerHttpDto.name,
-      birthdate: createCustomerHttpDto.birthday,
+      birthdate: createCustomerHttpDto.birthdate,
       lastName: createCustomerHttpDto.lastName,
     });
   }
