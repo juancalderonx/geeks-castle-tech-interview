@@ -4,10 +4,19 @@ import {
   UserPrimitive,
   UserRepository,
 } from '@/contexts/users/domain';
-import { firestore } from '../firebase/firebase.config';
+import { FirebaseConfigService } from '@/src/contexts/shared/firebase/firebase-config.service';
+import { Inject } from '@nestjs/common';
+import * as admin from 'firebase-admin';
 
 export class FirestoreRepository implements UserRepository {
-  private collection = firestore.collection('users');
+  private collection: admin.firestore.CollectionReference;
+
+  constructor(
+    @Inject(FirebaseConfigService)
+    firebaseConfigService: FirebaseConfigService,
+  ) {
+    this.collection = firebaseConfigService.getFirestore().collection('users');
+  }
 
   async save(user: User): Promise<void> {
     const { id } = user.toValue();
